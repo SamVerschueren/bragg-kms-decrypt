@@ -57,11 +57,11 @@ Properties of the body that should be decrypted.
 
 ##### encryptionContext
 
-Type: `string[]` `object`<br>
+Type: `Array<string | object>` `object` `function`<br>
 *Required*
 
 The properties or the object that should be used as encryption context. The [encryption context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html) is used
-to be generate the cipher key and the same context should be used to decrypt it again.
+to generate the cipher key and the same context should be used to decrypt it again.
 
 Here are some examples for parsing the encryption context. Let's assume `generate` generates the encryption context for the provided input.
 
@@ -80,6 +80,25 @@ generate(input, ['firstName', 'name', {foo: 'bar'}]);
 
 generate(input, {foo: 'bar'});
 //=> {foo: 'bar}
+```
+
+###### EncryptionContext as a function
+
+It's also possible to provide a function as `encryptionContext`. This function will be called with the `Bragg` context object and should return
+an array with strings and/or objects, or an object. You should use this when the encryption context depends on request parameters.
+
+```js
+const calculate = ctx => {
+	return [
+		'firstName',
+		'name',
+		{
+			id: ctx.request.params.id
+		}
+	];
+};
+
+router.get('/user', findUser, decrypt(['email'], {encryptionContext: calculate}));
 ```
 
 ##### maxAge

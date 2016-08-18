@@ -1,6 +1,6 @@
 {
   "name": "bragg-kms-decrypt",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Bragg middleware to decrypt properties from the response object",
   "license": "MIT",
   "repository": "SamVerschueren/bragg-kms-decrypt",

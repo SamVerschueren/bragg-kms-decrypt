@@ -82,3 +82,21 @@ test('decrypt promise body', async t => {
 		__cipher: 'Zm9vYmFy'
 	});
 });
+
+test('do nothing if properties do not exist', async t => {
+	const ctx = {
+		body: {
+			foo: 'bar',
+			__cipher: 'Zm9vYmFy'
+		}
+	};
+
+	const fn = m(['unicorn'], {encryptionContext: ['foo']});
+
+	fn(ctx);
+
+	t.deepEqual(await ctx.body, {
+		foo: 'bar',
+		__cipher: 'Zm9vYmFy'
+	});
+});

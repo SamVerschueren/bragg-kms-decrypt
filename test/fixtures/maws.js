@@ -12,6 +12,11 @@ class KMS {
 			return;
 		}
 
+		if (res === 'Zm9vYmFy' && deepEqual(ctx, {foo: 'baz'})) {
+			cb(undefined, {Plaintext: new Buffer('5a8b3aa11b6047c967ba7c66fd02b2f851c95da80e0218f0aa6088db50565753', 'hex')});
+			return;
+		}
+
 		cb(undefined, {Plaintext: new Buffer('foo')});
 	}
 }

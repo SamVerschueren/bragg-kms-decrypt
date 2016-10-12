@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unassigned-import */
 import test from 'ava';
 import './fixtures/maws';
 import m from '../';

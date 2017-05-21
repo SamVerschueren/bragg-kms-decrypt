@@ -2,6 +2,8 @@
 
 > [Bragg](https://github.com/SamVerschueren/bragg) middleware to decrypt properties from the response object
 
+The `aws-sdk` is not a dependency and has to be installed separately. The reason for this is that the SDK is automatically available in AWS Lambda functions. This way, we reduce the size of the deployment package drastically.
+
 
 ## Install
 

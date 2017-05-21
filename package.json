@@ -31,7 +31,7 @@
     "dot-prop": "^4.0.0",
     "is-promise": "^2.1.0",
     "jovi": "^1.0.0",
-    "mem": "^0.1.1",
+    "mem": "^1.1.0",
     "pify": "^2.3.0"
   },
   "devDependencies": {

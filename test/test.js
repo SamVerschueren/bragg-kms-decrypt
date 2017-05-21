@@ -102,7 +102,7 @@ test('do nothing if properties do not exist', async t => {
 	});
 });
 
-test('encryptionContext as a function throws error on wrong result', async t => {
+test('encryptionContext as a function throws error on wrong result', t => {
 	const ctx = {
 		body: {
 			foo: 'bar',
